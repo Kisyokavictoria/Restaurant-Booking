@@ -19,9 +19,9 @@ def service(request):
     return render(request, 'service.html')
 
 
-def available_tables(request):
-    tables = Table.objects.filter(is_available=True)
-    return render(request, 'tables.html', {'tables': tables})
+# def available_tables(request):
+#     tables = Table.objects.filter(is_available=True)
+#     return render(request, 'booking.html', {'tables': tables})
 
 
 def contact(request):
@@ -37,6 +37,7 @@ def testimonial(request):
 
 
 def new_reservation(request):
+    tables = Table.objects.filter(is_available=True)
     if request.method == 'POST':
         form = ReservationForm(request.POST)
         if form.is_valid():
@@ -44,7 +45,7 @@ def new_reservation(request):
             return redirect('homepage')
     else:
         form = ReservationForm()
-    return render(request, 'booking.html', {'form': form})
+    return render(request, 'booking.html', {'form': form, 'tables': tables})
 
 # def new_order(request):
 #     if request.method == 'POST':

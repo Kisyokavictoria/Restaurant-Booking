@@ -7,7 +7,6 @@ class ReservationForm(forms.ModelForm):
         model = Reservation
         fields = ['name', 'phone', 'table', 'date', 'time', 'reservation_fee']
 
-
 # class OrderForm(forms.ModelForm):
 #     class Meta:
 #         model = Order
